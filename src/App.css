@@ -26,6 +26,7 @@
 
 .cardContainer{
   display: flex;
+  flex-wrap: wrap;
   height: 100%;
   width: 0 auto;
   gap: 39px;
@@ -35,15 +36,18 @@
   width: 225px;
   height: 361px;
   padding: 20px 0;
+  gap: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.09);
 }
 
 .cardName {
+  margin: 30px 10px 10px 10px;
   font-weight: 400;
   font-size: 24px;
 }
 
 .cardPrice {
+  margin: 7px;
   font-style: italic;
   font-weight: 300;
   font-size: 20px;
@@ -52,11 +56,26 @@
 button {
   background-color: #ECA32F;
   color: #ffffff;
+  width: 107px;
+  height: 29px;
+  margin-top: 10px;
   padding: 5px 10px;
   border-radius: 30px;
   cursor: pointer;
   border: none;
 
+}
+
+.cardTextBlock{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container{
+  max-width: 1400px;
+  margin-top: 20px;
+  padding: 60px 80px;
+  margin: 0 auto;
 }
 
 .cardImageContainer {
@@ -70,4 +89,63 @@ button {
   max-height: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.highlighted {
+  box-shadow: 0 0 0 1px #ECA32F;
+
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modalContent {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  background-color: white;
+  width: 898px;
+  height: 601px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modalImage img {
+  object-fit: cover;
+}
+/* 
+.cardImageContainer img, .modalContent img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+} */
+
+.modalName {
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.modalText {
+  font-weight: 300;
+  font-size: 16px;
+}
+
+.modalTextBlock .cardPrice {
+  font-size: 24px;
+  font-weight: 400;
+  font-style:normal;
+}
+
+.modalImage {
+  width: 461px;
+  height: 601px;
 }
