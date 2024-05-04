@@ -110,9 +110,10 @@ button {
 }
 
 .modalContent {
+  position: relative;
   display: flex;
   flex-direction: row;
-  gap: 30px;
+  /* gap: 30px; */
   background-color: white;
   width: 898px;
   height: 601px;
@@ -122,12 +123,6 @@ button {
 .modalImage img {
   object-fit: cover;
 }
-/* 
-.cardImageContainer img, .modalContent img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-} */
 
 .modalName {
   font-weight: 600;
@@ -135,8 +130,15 @@ button {
 }
 
 .modalText {
-  font-weight: 300;
+  font-weight: 400;
   font-size: 16px;
+}
+
+.modalTextBlock {
+  width: 330px;
+  height: 330px;
+  padding: 50px;
+  padding-left: 30px;
 }
 
 .modalTextBlock .cardPrice {
@@ -145,7 +147,32 @@ button {
   font-style:normal;
 }
 
+.modalTextBlock button {
+  font-weight: 300;
+  font-size: 24px;
+  height: 47px;
+  width: 161px;
+}
+
 .modalImage {
+  margin: 0 7px;
   width: 461px;
   height: 601px;
+}
+
+.closeBlock {
+  padding: 15px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px; 
+  width: 30px;
+  height: 30px;
+}
+
+.modalPriceBlock {
+  font-size: 24px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
 }
