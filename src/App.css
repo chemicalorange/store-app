@@ -13,20 +13,6 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
 
 @keyframes App-logo-spin {
   from {
@@ -35,4 +21,53 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.cardContainer{
+  display: flex;
+  height: 100%;
+  width: 0 auto;
+  gap: 39px;
+}
+
+.card {
+  width: 225px;
+  height: 361px;
+  padding: 20px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.09);
+}
+
+.cardName {
+  font-weight: 400;
+  font-size: 24px;
+}
+
+.cardPrice {
+  font-style: italic;
+  font-weight: 300;
+  font-size: 20px;
+}
+
+button {
+  background-color: #ECA32F;
+  color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 30px;
+  cursor: pointer;
+  border: none;
+
+}
+
+.cardImageContainer {
+  width: 225px;
+  height: 209px;
+  flex-shrink: 0;
+
+}
+
+.cardImageContainer img {
+  max-height: 100%;
+  height: 100%;
+  object-fit: cover;
 }
