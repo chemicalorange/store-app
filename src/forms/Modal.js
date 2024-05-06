@@ -5,7 +5,7 @@ import CloseIcon from '../assets/images/close-icon.svg';
 import Button from '../components/Button';
 
 
-function Modal({ isOpen, toggleModal }) {
+function Modal({ product,isOpen, toggleModal }) {
   if (!isOpen) return null;
 
   return (
@@ -15,14 +15,14 @@ function Modal({ isOpen, toggleModal }) {
           <img src={CloseIcon} alt="Закрыть" />
         </div>
         <div className={styles.modalImage}>
-          <img src={ModalImage} alt="Модальное фото" className={styles.img} />
+          <img src={product.image} alt="Модальное фото" className={styles.img} />
         </div>
         <div className={styles.modalTextBlock}>
-          <p className={styles.modalName}>DREW HOUSE Yellow T-Shirt</p>
-          <p className={styles.modalText}>Single knit yarns woven to create a mid-weight yet soft fabric with a nice drape. an everyday staple for a daily drew fit. We custom wove it to make sure that we love it, and so you’ll probably love it too.</p>
+          <p className={styles.modalName}>{product.title}</p>
+          <p className={styles.modalText}>{product.description}</p>
           <div className={styles.modalPriceBlock}>
             <Button className={styles.button} onClick={toggleModal}>add to card</Button>
-            <p className={styles.cardPrice}>$40.00</p>
+            <p className={styles.cardPrice}>${product.price}</p>
           </div>
         </div>
       </div>

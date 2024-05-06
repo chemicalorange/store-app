@@ -1,16 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import { fetchProducts } from './api/products/getProducts';
 import Card from './components/Card'; 
 import Modal from './forms/Modal';
-import CardImage from './assets/images/cap-photo.svg';
 
 
 function App() {
+  const [products, setProducts] = useState([]);
   const [selectedCard, setSelectedCard] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);  
+
+
+  useEffect(() => {
+    fetchProducts().then(data => {
+      setProducts(data);
+    }).catch(error => {
+      console.error("Failed to fetch products:", error);
+    });
+  }, []);
 
   const handleCardClick = (index) => {
     setSelectedCard(index);
+    setSelectedProduct(products[index]); 
     toggleModal();
   };
 
@@ -18,6 +30,7 @@ function App() {
     setIsModalOpen(!isModalOpen);
     if (isModalOpen) {
       setSelectedCard(null);
+      setSelectedProduct(null);
     }
   };
 
@@ -25,18 +38,18 @@ function App() {
   return (
     <div className="container">
       <div className="cardContainer">
-      {[...Array(20)].map((_, index) => (
+      {products.map((product, index) => (
           <Card
-            key={index}
-            image={CardImage}
-            name="drew house cap"
-            price="40.00"
+            key={product.id}
+            image={product.image}
+            name={product.title}
+            price={`${product.price}`}
             isSelected={selectedCard === index}
             onClick={() => handleCardClick(index)}
           />
         ))}
         
-        <Modal isOpen={isModalOpen} toggleModal={toggleModal} />
+        <Modal product={selectedProduct} isOpen={isModalOpen} toggleModal={toggleModal} />
       </div>
     </div>
 
