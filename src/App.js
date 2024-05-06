@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
+import Modal from './forms/Modal';
 import CardImage from './assets/images/cap-photo.svg';
-import ModalImage from './assets/images/tshirt-photo.svg';
-import CloseIcon from './assets/images/close-icon.svg';
 
 
 function App() {
@@ -65,26 +64,8 @@ function App() {
           </div>
         </div>
 
-        {isModalOpen && (
-        <div className="modal">
-          <div className="modalContent">
-            <div className="closeBlock" onClick={() => toggleModal()}>
-              <img src={CloseIcon} alt="Закрыть" />
-            </div>
-            <div className="modalImage">
-              <img src={ModalImage} alt="Модальное фото" />
-            </div>
-            <div className="modalTextBlock">
-              <p className="modalName">DREW HOUSE Yellow T-Shirt</p>
-              <p className='modalText'>Single knit yarns woven to create a mid-weight yet soft fabric with a nice drape. an everyday staple for a daily drew fit. We custom wove it to make sure that we love it, and so you’ll probably love it too.</p>
-              <div className="modalPriceBlock">
-                <button onClick={() => { toggleModal();}}>add to card</button>
-                <p className="cardPrice">$40.00</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+        <Modal isOpen={isModalOpen} toggleModal={toggleModal} />
+
       </div>
     </div>
 
