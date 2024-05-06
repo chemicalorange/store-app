@@ -11,16 +11,21 @@ function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);  
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
 
 
   useEffect(() => {
+    setIsLoading(true);
     fetchProducts()
         .then(data => {
             setProducts(data);
             setError(null);
+            setIsLoading(false); 
         })
         .catch(error => {
             setError(error.message);
+            setIsLoading(false);
             setProducts([]);
         });
 }, []);
@@ -51,8 +56,12 @@ function App() {
   return (
     
     <div className="container">
-      {error && <p>Ошибка: {error}</p>}
-      <div className="cardContainer">
+           {isLoading ? (
+                <div className="spinner"></div>
+            ) : error ? (
+                <p>Ошибка: {error}</p>
+            ) : (
+              <div className="cardContainer">
       {products.map((product, index) => (
           <Card
             key={product.id}
@@ -66,6 +75,7 @@ function App() {
         
         <Modal product={selectedProduct} isOpen={isModalOpen} toggleModal={toggleModal} />
       </div>
+            )}
     </div>
 
   );
