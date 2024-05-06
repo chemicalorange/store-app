@@ -4,8 +4,12 @@ export async function fetchProducts() {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
-        return await response.json();
+        const products = await response.json();
+        if (products.length === 0) {
+            throw new Error("Получен пустой список продуктов.");
+        }
+        return products;
     } catch (error) {
-        console.error("Ошибка при получении данных:", error);
+        throw error;
     }
 }

@@ -10,7 +10,20 @@ function App() {
   const [selectedCard, setSelectedCard] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);  
+  const [error, setError] = useState(null);
 
+
+  useEffect(() => {
+    fetchProducts()
+        .then(data => {
+            setProducts(data);
+            setError(null);
+        })
+        .catch(error => {
+            setError(error.message);
+            setProducts([]);
+        });
+}, []);
 
   useEffect(() => {
     fetchProducts().then(data => {
@@ -36,7 +49,9 @@ function App() {
 
 
   return (
+    
     <div className="container">
+      {error && <p>Ошибка: {error}</p>}
       <div className="cardContainer">
       {products.map((product, index) => (
           <Card
