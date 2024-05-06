@@ -13,7 +13,7 @@
   
   
   .modalImage {
-    margin: 0 7px;
+    margin: 0 10px;
     width: 461px;
     height: 601px;
   }
@@ -58,7 +58,7 @@
   .img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
   }
 
   .modal {
@@ -81,18 +81,29 @@
       height: 680px;
     }
     .modalImage{
+      padding-top: 5px;
       margin: 0 auto;
+      height: 400px;
       width: 280px;
     }
     .modalTextBlock{
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
       padding: 50px;
       padding-top: 0;
+    }
+    .modalName{
+      margin-bottom: 10px;
     }
     .modal{
       align-items: flex-start;
     }
     .closeBlock{
         padding: 25px;
+    }
+    .modalText {
+      font-size: 10px;
     }
   }
 
