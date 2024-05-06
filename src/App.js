@@ -56,26 +56,27 @@ function App() {
   return (
     
     <div className="container">
-           {isLoading ? (
-                <div className="spinner"></div>
-            ) : error ? (
-                <p>Ошибка: {error}</p>
-            ) : (
-              <div className="cardContainer">
-      {products.map((product, index) => (
-          <Card
-            key={product.id}
-            image={product.image}
-            name={product.title}
-            price={`${product.price}`}
-            isSelected={selectedCard === index}
-            onClick={() => handleCardClick(index)}
-          />
-        ))}
-        
-        <Modal product={selectedProduct} isOpen={isModalOpen} toggleModal={toggleModal} />
-      </div>
-            )}
+      {isLoading ? (
+        <div className="spinner"></div>
+      ) : error ? (
+        <p>Ошибка: {error}</p>
+      ) : products.length === 0 ? (
+        <p>Список продуктов пуст.</p>
+      ) : (
+        <div className="cardContainer">
+          {products.map((product, index) => (
+            <Card
+              key={product.id}
+              image={product.image}
+              name={product.title}
+              price={`${product.price}`}
+              isSelected={selectedCard === index}
+              onClick={() => handleCardClick(index)}
+            />
+          ))}
+          <Modal product={selectedProduct} isOpen={isModalOpen} toggleModal={toggleModal} />
+        </div>
+      )}
     </div>
 
   );
