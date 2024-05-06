@@ -6,17 +6,30 @@
     padding-left: 30px;
   }
   
-  .modalTextBlock .cardPrice {
+  .cardPrice {
     font-size: 24px;
     font-weight: 400;
     font-style:normal;
   }
   
-  .modalTextBlock button {
+  .button {
     font-weight: 300;
     font-size: 24px;
     height: 47px;
     width: 161px;
+    background-color: #ECA32F;
+    color: #ffffff;
+    margin-top: 10px;
+    padding: 5px 10px;
+    border-radius: 30px;
+    cursor: pointer;
+    border: none;
+    margin-right: 20px;
+  }
+
+  
+  .button:hover {
+    background-color: #c98c2a;
   }
   
   .modalImage {
@@ -62,7 +75,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
   
-  .modalImage img {
+  .img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -97,6 +110,9 @@
     }
     .modal{
       align-items: flex-start;
+    }
+    .closeBlock{
+        padding: 25px;
     }
   }
 
