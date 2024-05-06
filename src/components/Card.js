@@ -16,7 +16,8 @@ function Card({ image, name, price, isSelected, onClick }) {
       <div className={styles.cardTextBlock}>
         <p className={styles.cardName}>{name}</p>
         <p className={styles.cardPrice}>${price}</p>
-        <Button className={styles.button} onClick={handleButtonClick}>add to card</Button>
+
+     <Button className={styles.button} onClick={handleButtonClick}>add to card</Button>
       </div>
     </div>
   );
