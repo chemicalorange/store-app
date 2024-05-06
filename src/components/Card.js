@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Card.module.css';
+import Button from './Button';
 
 function Card({ image, name, price, isSelected, onClick }) {
     const handleButtonClick = (e) => {
@@ -15,7 +16,7 @@ function Card({ image, name, price, isSelected, onClick }) {
       <div className={styles.cardTextBlock}>
         <p className={styles.cardName}>{name}</p>
         <p className={styles.cardPrice}>${price}</p>
-        <button className={styles.button} onClick={handleButtonClick}>add to card</button>
+        <Button className={styles.button} onClick={handleButtonClick}>add to card</Button>
       </div>
     </div>
   );
